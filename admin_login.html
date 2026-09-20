@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="{{ url_for('home') }}" class="brand">
+      <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="{{ team.nome_squadra }}" class="brand-logo">
+      {{ team.nome_squadra }}
+    </a>
+    <div class="nav-links">
+      <a href="{{ url_for('home') }}">&larr; Torna al sito</a>
+    </div>
+  </div>
+</nav>
+
+<div class="login-wrap">
+  <form method="POST" action="{{ url_for('admin_login') }}" class="login-card">
+    <span class="section-eyebrow">Area riservata</span>
+    <h2>Accesso admin</h2>
+    <p class="body-text">Inserisci la password per poter aggiungere foto alla galleria.</p>
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required autofocus>
+    </div>
+    <button type="submit" class="btn-primary btn-full">Accedi</button>
+  </form>
+</div>
+
+<footer class="footer">
+  <p>&copy; {{ team.storia.anno_fondazione }}–2026 {{ team.nome_squadra }}. Tutti i diritti riservati.</p>
+</footer>
+
+{% endblock %}
